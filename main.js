@@ -12,11 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return color;
     }
 
-    // Aggiungi un listener per il clic del pulsante per cambiare il colore
-    changeColorButton.addEventListener('click', function() {
+    // Funzione per cambiare il colore dei riquadri
+    function changeColor() {
         // Itera su tutti i riquadri colorati e cambia il loro colore in uno casuale
         colorBoxes.forEach(function(box) {
             box.style.backgroundColor = getRandomColor();
         });
-    });
+    }
+
+    // Aggiungi un listener per l'evento click per il bottone
+    changeColorButton.addEventListener('click', changeColor);
+
+    // Aggiungi un listener per l'evento touchstart per il bottone
+    changeColorButton.addEventListener('touchstart', changeColor);
 });
