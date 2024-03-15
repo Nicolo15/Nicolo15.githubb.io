@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #ea4334;
+    background-color: #ff6f61;
     padding: 20px;
     text-align: center;
     color: white;
@@ -23,15 +23,33 @@ main {
 .colorful-section .color-box {
     width: 100px;
     height: 100px;
-    background-color: #76d11b;
+    background-color: #ffb347;
     margin: 10px;
     display: inline-block;
     border-radius: 10px;
 }
 
 footer {
-    background-color: #3e2092;
+    background-color: #424242;
     padding: 10px;
     text-align: center;
     color: white;
 }
+
+#changeColorButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#changeColorButton:hover {
+    background-color: #ff5733;
+}
+
