@@ -3,30 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Divertente e Colorata</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>vhkfhghgggkhg</h1>
+        <h1>Welcome to my Art Gallery</h1>
+        <p>Owned by: Nico >.< </p>
     </header>
+
     <main>
-        <section class="fun-section">
-            <h2>lazza 100 messaggi</h2>
-            <p>Rosso di sera sta andando a fuoco una montagna.</p>
-            <button id="changeColorButton">fraca il boton</button>
+        <section class="gallery-section">
+            <h2>Gallery of NICOLO'</h2>
+            <div class="gallery">
+                <div class="gallery-item" onclick="showImage('img1.jpg', 'The Starry Night', 'Vincent van Gogh')">
+                    <img src="img1.jpg" alt="Painting 1">
+                    <div class="overlay-text">
+                        <h3>Maine Coon</h3>
+                        <p>Gatto bellissimo</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showImage('img2.jpg', 'Mona Lisa', 'Leonardo da Vinci')">
+                    <img src="img2.jpg" alt="Painting 2">
+                    <div class="overlay-text">
+                        <h3>Salmo</h3>
+                        <p>Miglior cantante</p>
+                    </div>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
         </section>
-        <section class="colorful-section">
-            <h2>Sezione Colorata</h2>
-            <div class="color-box"></div>
-            <div class="color-box"></div>
-            <div class="color-box"></div>
-            <div class="color-box"></div>
+
+        <section class="more-artwork-section">
+            <h2>E per finire...</h2>
+            <div class="more-artwork-gallery">
+                <div class="more-artwork-item" onclick="showImage('img3.jpg', 'The Persistence of Memory', 'Salvador Dalí')">
+                    <img src="img3.jpg" data-src="img3.jpg" alt="Painting 3">
+                    <div class="overlay-text">
+                        <h3>Lamborghini</h3>
+                        <p>Macchina potente</p>
+                    </div>
+                </div>
+                <!-- Add more artwork items as needed -->
+            </div>
         </section>
+
+        <!-- Overlay for displaying full-size images -->
+        <div id="overlay" class="overlay">
+            <span class="close-btn" onclick="hideImage()">&times;</span>
+            <span class="prev-btn" onclick="changeImage(-1)">&#10094;</span>
+            <img id="overlay-image" src="" alt="">
+            <span class="next-btn" onclick="changeImage(1)">&#10095;</span>
+            <div id="loader" class="loader"></div>
+            <div class="overlay-text">
+                <h2 id="overlay-title"></h2>
+                <p id="overlay-description"></p>
+            </div>
+        </div>
     </main>
+
     <footer>
-        <p>Realizzato da Nico</p>
+        <p>&copy; 2024 Art Gallery. All rights reserved.</p>
     </footer>
-    <script src="main.js"></script>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
