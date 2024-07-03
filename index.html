@@ -1,71 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Gallery</title>
+    <title>Magliette Personalizzate di Nico</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to my Art Gallery</h1>
-        <p>Owned by: Nico >.< </p>
+        <h1>Nico's T-Shirts</h1>
+        <p>Owned by Nico</p>
+        <p>Magliette personalizzate fatte a mano per ogni occasione!</p>
     </header>
-
     <main>
-        <section class="gallery-section">
-            <h2>Gallery of NICOLO'</h2>
-            <div class="gallery">
-                <div class="gallery-item" onclick="showImage('img1.jpg', 'The Starry Night', 'Vincent van Gogh')">
-                    <img src="img1.jpg" alt="Painting 1">
-                    <div class="overlay-text">
-                        <h3>Maine Coon</h3>
-                        <p>Gatto bellissimo</p>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="showImage('img2.jpg', 'Mona Lisa', 'Leonardo da Vinci')">
-                    <img src="img2.jpg" alt="Painting 2">
-                    <div class="overlay-text">
-                        <h3>Salmo</h3>
-                        <p>Miglior cantante</p>
-                    </div>
-                </div>
-                <!-- Add more gallery items as needed -->
+        <section class="categories">
+            <div class="category">
+                <img src="img1.jpg" alt="Cartoon"><!-- Inserisci qui l'immagine per la categoria Cartoon -->
+                <a href="cartoon.html"><button>Cartoon</button></a>
+            </div>
+            <div class="category">
+                <img src="path/to/tattoo.jpg" alt="Tattoo"><!-- Inserisci qui l'immagine per la categoria Tattoo -->
+                <a href="tattoo.html"><button>Tattoo</button></a>
+            </div>
+            <div class="category">
+                <img src="path/to/horror.jpg" alt="Horror"><!-- Inserisci qui l'immagine per la categoria Horror -->
+                <a href="horror.html"><button>Horror</button></a>
+            </div>
+            <div class="category">
+                <img src="path/to/spicy.jpg" alt="Spicy"><!-- Inserisci qui l'immagine per la categoria Spicy -->
+                <a href="spicy.html"><button>Spicy</button></a>
             </div>
         </section>
-
-        <section class="more-artwork-section">
-            <h2>E per finire...</h2>
-            <div class="more-artwork-gallery">
-                <div class="more-artwork-item" onclick="showImage('img3.jpg', 'The Persistence of Memory', 'Salvador Dalí')">
-                    <img src="img3.jpg" data-src="img3.jpg" alt="Painting 3">
-                    <div class="overlay-text">
-                        <h3>Lamborghini</h3>
-                        <p>Macchina potente</p>
-                    </div>
-                </div>
-                <!-- Add more artwork items as needed -->
-            </div>
+        <section class="custom-order">
+            <h2>Ordine Personalizzato</h2>
+            <form id="customOrderForm">
+                <label for="description">Descrivi la tua maglietta:</label>
+                <textarea id="description" name="description" rows="4" cols="50" placeholder="Descrivi qui la maglietta che vuoi..."></textarea>
+                <button type="button" onclick="submitOrder()">Invia</button>
+            </form>
         </section>
-
-        <!-- Overlay for displaying full-size images -->
-        <div id="overlay" class="overlay">
-            <span class="close-btn" onclick="hideImage()">&times;</span>
-            <span class="prev-btn" onclick="changeImage(-1)">&#10094;</span>
-            <img id="overlay-image" src="" alt="">
-            <span class="next-btn" onclick="changeImage(1)">&#10095;</span>
-            <div id="loader" class="loader"></div>
-            <div class="overlay-text">
-                <h2 id="overlay-title"></h2>
-                <p id="overlay-description"></p>
-            </div>
-        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2024 Art Gallery. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
