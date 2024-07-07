@@ -7,8 +7,13 @@ if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
+// Prendi i dati inviati dal form
+$name = $_POST['name'];
+$email = $_POST['email'];
+$description = $_POST['description'];
+
 // Prepara la query SQL per l'inserimento
-$stmt = $conn->prepare("INSERT INTO magliette_personalizzate (descrizione, data_inserimento) VALUES (?, NOW())");
+$stmt = $conn->prepare("INSERT INTO magliette_personalizzate (name, email, descrizione, data_inserimento) VALUES (?, ?, ?, NOW())");
 
 // Verifica se la preparazione della query è andata a buon fine
 if ($stmt === false) {
@@ -16,7 +21,7 @@ if ($stmt === false) {
 }
 
 // Bind dei parametri e esecuzione della query
-$stmt->bind_param("s", $_POST['description']);
+$stmt->bind_param("sss", $name, $email, $description);
 
 if ($stmt->execute()) {
     echo "Record inserito con successo!";
@@ -24,7 +29,7 @@ if ($stmt->execute()) {
     echo "Errore durante l'inserimento del record: " . $stmt->error;
 }
 
-// Chiusura della connessione e dello statement
+// Chiusura dello statement e della connessione
 $stmt->close();
 $conn->close();
 ?>
