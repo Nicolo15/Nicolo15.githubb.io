@@ -3,45 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magliette Personalizzate</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Form di Inserimento Magliette Personalizzate</title>
 </head>
 <body>
-    <h1>Nico's T-Shirts</h1>
-    <p>Magliette personalizzate disegnate a mano libera</p>
-    
-    <div class="categories">
-        <!-- Categoria 1 -->
-        <div class="category">
-            <a href="cartoon.html">
-                <img src="img1.jpg" alt="Cartoon">
-                <button>Cartoon</button>
-            </a>
-        </div>
-        
-        <!-- Categoria 2 -->
-        <div class="category">
-            <a href="tattoo.html">
-                <img src="path_to_tattoo_image.jpg" alt="Tattoo">
-                <button>Tattoo</button>
-            </a>
-        </div>
-        
-        <!-- Altre categorie... -->
-    </div>
-
-    <h2>Personalizza la tua maglietta</h2>
-    <form action="insert.php" method="post">
+    <h2>Inserisci i dati per la tua maglietta personalizzata</h2>
+    <form id="formMaglietta" method="POST" action="insert.php">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required><br><br>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required><br><br>
         
-        <label for="description">Descrizione:</label>
-        <textarea id="description" name="description" required></textarea>
+        <label for="description">Descrizione:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
         
-        <button type="submit">Invia</button>
+        <input type="submit" name="submit" value="Invia">
     </form>
+
+    <div id="messaggio-conferma"></div>
+
+    <script>
+        // Script JavaScript per gestire l'invio del form via AJAX
+        document.getElementById('formMaglietta').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita il submit normale del form
+            
+            // Crea un oggetto FormData con i dati del form
+            let formData = new FormData(this);
+            
+            // Invia i dati del form via AJAX a insert.php
+            fetch('insert.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('messaggio-conferma').innerHTML = data; // Mostra il messaggio di conferma/errore
+                document.getElementById('formMaglietta').reset(); // Resetta il form dopo l'invio
+            })
+            .catch(error => {
+                console.error('Errore durante l\'invio dei dati:', error);
+            });
+        });
+    </script>
 </body>
 </html>
